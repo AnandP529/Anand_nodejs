@@ -1,2 +1,41 @@
 Deploying the project to AWS Server
 ------------------------------------
+step 1- create gitignore file
+>npx gitignore node
+This gitignore is used to ignores the movement of libraries(node_modules) to GitHub
+
+Step 2- Download the express module
+>yarn add express --save
+Step 3- Develop the Rest Services
+server.js is the file we will develope the rest Services
+Step 4- move server to the gitHUb
+# Initialize Git repository
+git init
+# Add all files to staging
+git add .
+# Commit the changes
+git commit -m "server ready"
+# Check Git status
+git status
+# Add remote repository
+git remote add origin https://github.com/AnandP529/Anand_nodejs.git
+# Push changes to GitHub
+git push -u origin master
+
+Step 5- Link github to AWS
+->login into AWS
+->Go to the services and in that elastic BEanstalk click it
+//Elastic Beanstalk is used to create the Application in AWS server
+->create one new Application{webserver-environment}
+->Application name [node-anand]
+->choose the platform [node]->create the environment//takes 5 minutes
+-> under the services codde pipeline[open link in new tab]
+//code Pipeline is used to CI/CD process
+//CICD means continuous integration and continuous Deployment 
+//Links the Github to AWS services
+->create new pipeline [nodeanand] next
+->source provider -Github and connect to Github and conform
+->Repository->our created repository shoulb be selected and the branch and click next
+->skip the jenkins tool
+->Deploy->AWS Elastic BEanStalk , Region Asia , App Name-node-anand , Environment name -Automatically comes and click next
+->click create pipeline
